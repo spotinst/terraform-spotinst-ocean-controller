@@ -85,6 +85,12 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   rule {
+    api_groups = ["apiextensions.k8s.io"]
+    resources  = ["customresourcedefinitions"]
+    verbs      = ["list"]
+  }
+
+  rule {
     non_resource_urls = ["/version/", "/version"]
     verbs             = ["get"]
   }
@@ -258,7 +264,7 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "spotinst/kubernetes-cluster-controller:1.0.58"
+          image             = "spotinst/kubernetes-cluster-controller:1.0.62"
           name              = "spotinst-kubernetes-cluster-controller"
           image_pull_policy = "Always"
 
