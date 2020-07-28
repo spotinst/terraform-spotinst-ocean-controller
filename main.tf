@@ -87,7 +87,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["apiextensions.k8s.io"]
     resources  = ["customresourcedefinitions"]
-    verbs      = ["list"]
+    verbs      = ["get", "list"]
   }
 
   rule {
