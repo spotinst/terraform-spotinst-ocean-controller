@@ -1,3 +1,17 @@
+resource "kubernetes_secret" "this" {
+  metadata {
+    name      = "spotinst-kubernetes-cluster-controller"
+    namespace = "kube-system"
+  }
+
+  type = "Opaque"
+
+  data = {
+    "token"   = var.spotinst_token
+    "account" = var.spotinst_account
+  }
+}
+
 resource "kubernetes_config_map" "this" {
   metadata {
     name      = "spotinst-kubernetes-cluster-controller-config"
@@ -5,16 +19,11 @@ resource "kubernetes_config_map" "this" {
   }
 
   data = {
-    # Credentials.
-    "spotinst.token"   = var.spotinst_token
-    "spotinst.account" = var.spotinst_account
-
-    # Configuration.
     "spotinst.cluster-identifier" = var.cluster_identifier
-    base-url                      = var.base_url
-    proxy-url                     = var.proxy_url
-    enable-csr-approval           = var.enable_csr_approval
-    disable-auto-update           = var.disable_auto_update
+    "base-url"                    = var.base_url
+    "proxy-url"                   = var.proxy_url
+    "enable-csr-approval"         = var.enable_csr_approval
+    "disable-auto-update"         = var.disable_auto_update
   }
 }
 
@@ -143,6 +152,13 @@ resource "kubernetes_cluster_role" "this" {
     verbs      = ["patch", "update"]
   }
 
+  rule {
+    api_groups     = ["certificates.k8s.io"]
+    resources      = ["signers"]
+    resource_names = ["kubernetes.io/kubelet-serving", "kubernetes.io/kube-apiserver-client-kubelet"]
+    verbs          = ["approve"]
+  }
+
   # ---------------------------------------------------------------------------
   # Required by the Spotinst Auto Update feature.
   # ---------------------------------------------------------------------------
@@ -264,7 +280,7 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "spotinst/kubernetes-cluster-controller:1.0.63"
+          image             = "spotinst/kubernetes-cluster-controller:1.0.67"
           name              = "spotinst-kubernetes-cluster-controller"
           image_pull_policy = "Always"
 
@@ -281,13 +297,27 @@ resource "kubernetes_deployment" "this" {
             failure_threshold     = 3
           }
 
+          readiness_probe {
+            http_get {
+              path = "/healthcheck"
+              port = 4401
+            }
+
+            initial_delay_seconds = 20
+            period_seconds        = 20
+            timeout_seconds       = 2
+            success_threshold     = 1
+            failure_threshold     = 3
+          }
+
           env {
             name = "SPOTINST_TOKEN"
 
             value_from {
-              config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
-                key  = "spotinst.token"
+              secret_key_ref {
+                name     = "spotinst-kubernetes-cluster-controller"
+                key      = "token"
+                optional = true
               }
             }
           }
@@ -296,9 +326,33 @@ resource "kubernetes_deployment" "this" {
             name = "SPOTINST_ACCOUNT"
 
             value_from {
+              secret_key_ref {
+                name     = "spotinst-kubernetes-cluster-controller"
+                key      = "account"
+                optional = true
+              }
+            }
+          }
+          env {
+            name = "SPOTINST_TOKEN_LEGACY"
+
+            value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
-                key  = "spotinst.account"
+                name     = "spotinst-kubernetes-cluster-controller-config"
+                key      = "spotinst.token"
+                optional = true
+              }
+            }
+          }
+
+          env {
+            name = "SPOTINST_ACCOUNT_LEGACY"
+
+            value_from {
+              config_map_key_ref {
+                name     = "spotinst-kubernetes-cluster-controller-config"
+                key      = "spotinst.account"
+                optional = true
               }
             }
           }
