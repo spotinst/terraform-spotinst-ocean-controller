@@ -1,4 +1,4 @@
-# Spotinst Ocean Controller Terraform module
+# Spot Ocean Controller Terraform module
 
 A Terraform module to install Ocean Controller.
 
@@ -11,6 +11,7 @@ A Terraform module to install Ocean Controller.
 - [Documentation](#documentation)
 - [Getting Help](#getting-help)
 - [Community](#community)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Usage
@@ -47,8 +48,8 @@ This module creates and manages the following resources:
 
 | Name                | Description                             | Type     | Default | Required |
 | ------------------- | --------------------------------------- | -------- | ------- | :------: |
-| spotinst_token      | Spotinst Personal Access token          | `string` | none    |   yes    |
-| spotinst_account    | Spotinst account ID                     | `string` | none    |   yes    |
+| spotinst_token      | Spot Personal Access token              | `string` | none    |   yes    |
+| spotinst_account    | Spot account ID                         | `string` | none    |   yes    |
 | cluster_identifier  | Cluster identifier                      | `string` | none    |   yes    |
 | base_url            | Base URL to be used by the HTTP client  | `string` | none    |    no    |
 | proxy_url           | Proxy server URL to communicate through | `string` | none    |    no    |
@@ -57,20 +58,24 @@ This module creates and manages the following resources:
 
 ## Documentation
 
-If you're new to [Spot](https://spot.io/) and want to get started, please checkout our [Getting Started](https://api.spotinst.com/getting-started-with-spotinst/) guide, available on the [Spot Documentation](https://api.spotinst.com/) website.
+If you're new to [Spot](https://spot.io/) and want to get started, please checkout our [Getting Started](https://docs.spot.io/connect-your-cloud-provider/) guide, available on the [Spot Documentation](https://docs.spot.io/) website.
 
 ## Getting Help
 
 We use GitHub issues for tracking bugs and feature requests. Please use these community resources for getting help:
 
 - Ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with [terraform-spotinst](https://stackoverflow.com/questions/tagged/terraform-spotinst/).
-- Join our [Spot](https://spot.io/) community on [Slack](http://slack.spotinst.com/).
+- Join our [Spot](https://spot.io/) community on [Slack](http://slack.spot.io/).
 - Open an issue.
 
 ## Community
 
-- [Slack](http://slack.spotinst.com/)
-- [Twitter](https://twitter.com/spotinst/)
+- [Slack](http://slack.spot.io/)
+- [Twitter](https://twitter.com/spot_hq/)
+
+## Contributing
+
+Please see the [contribution guidelines](CONTRIBUTING.md).
 
 ## License
 
