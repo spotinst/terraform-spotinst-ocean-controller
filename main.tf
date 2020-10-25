@@ -198,6 +198,16 @@ resource "kubernetes_cluster_role" "this" {
     resources  = ["pods"]
     verbs      = ["get", "list", "patch", "update", "create", "delete"]
   }
+
+  # ---------------------------------------------------------------------------
+  # Required by the Spotinst Wave.
+  # ---------------------------------------------------------------------------
+
+  rule {
+    api_groups = ["sparkoperator.k8s.io"]
+    resources  = ["sparkapplications", "scheduledsparkapplications"]
+    verbs      = ["get", "list"]
+  }
 }
 
 resource "kubernetes_cluster_role_binding" "this" {
@@ -280,7 +290,7 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "spotinst/kubernetes-cluster-controller:1.0.67"
+          image             = "spotinst/kubernetes-cluster-controller:1.0.68"
           name              = "spotinst-kubernetes-cluster-controller"
           image_pull_policy = "Always"
 
