@@ -1,11 +1,11 @@
 variable "spotinst_token" {
   type        = string
-  description = "Spotinst Personal Access token"
+  description = "Spot Personal Access token"
 }
 
 variable "spotinst_account" {
   type        = string
-  description = "Spotinst account ID"
+  description = "Spot account ID"
 }
 
 variable "cluster_identifier" {

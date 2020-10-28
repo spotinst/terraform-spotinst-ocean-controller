@@ -1,5 +1,5 @@
 module "ocean-controller" {
-  source = "spotinst/ocean-controller/spotinst"
+  source = "../.."
 
   # Credentials.
   spotinst_token   = var.spotinst_token

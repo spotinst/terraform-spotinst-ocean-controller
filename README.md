@@ -2,11 +2,13 @@
 
 A Terraform module to install Ocean Controller.
 
-## Contents
+## Table of Contents
 
 - [Usage](#usage)
 - [Examples](#examples)
 - [Resources](#resources)
+- [Requirements](#requirements)
+- [Providers](#providers)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Documentation](#documentation)
@@ -22,17 +24,17 @@ module "ocean-controller" {
   source = "spotinst/ocean-controller/spotinst"
 
   # Credentials.
-  spotinst_token   = "<spotinst_token>"
-  spotinst_account = "<spotinst_account>"
+  spotinst_token   = var.spotinst_token
+  spotinst_account = var.spotinst_account
 
   # Configuration.
-  cluster_identifier = "<cluster_identifier>"
+  cluster_identifier = var.cluster_identifier
 }
 ```
 
 ## Examples
 
-- [Basic](examples/basic)
+- [Simple Installation](https://github.com/spotinst/terraform-spotinst-ocean-controller/tree/master/examples/simple-installation)
 
 ## Resources
 
@@ -45,21 +47,40 @@ This module creates and manages the following resources:
 - kubernetes_cluster_role_binding
 - kubernetes_deployment
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >=0.12.0 |
+| kubernetes | >= 1.13.0 |
+| null | >= 3.0.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| kubernetes | >= 1.13.0 |
+| null | >= 3.0.0 |
+
 ## Inputs
 
-| Name                | Description                             | Type     | Default | Required |
-| ------------------- | --------------------------------------- | -------- | ------- | :------: |
-| spotinst_token      | Spot Personal Access token              | `string` | none    |   yes    |
-| spotinst_account    | Spot account ID                         | `string` | none    |   yes    |
-| cluster_identifier  | Cluster identifier                      | `string` | none    |   yes    |
-| base_url            | Base URL to be used by the HTTP client  | `string` | none    |    no    |
-| proxy_url           | Proxy server URL to communicate through | `string` | none    |    no    |
-| enable_csr_approval | Enable the CSR approval feature         | `bool`   | false   |    no    |
-| disable_auto_update | Disable the auto-update feature         | `bool`   | false   |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| base\_url | Base URL to be used by the HTTP client | `string` | `""` | no |
+| cluster\_identifier | Cluster identifier | `string` | n/a | yes |
+| disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
+| enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
+| module\_depends\_on | List of modules or resources this module depends on | `list` | `[]` | no |
+| proxy\_url | Proxy server URL to communicate through | `string` | `""` | no |
+| spotinst\_account | Spot account ID | `string` | n/a | yes |
+| spotinst\_token | Spot Personal Access token | `string` | n/a | yes |
 
 ## Outputs
 
-None.
+No output.
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Documentation
 

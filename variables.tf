@@ -1,11 +1,11 @@
 variable "spotinst_token" {
   type        = string
-  description = "Spotinst Personal Access token"
+  description = "Spot Personal Access token"
 }
 
 variable "spotinst_account" {
   type        = string
-  description = "Spotinst account ID"
+  description = "Spot account ID"
 }
 
 variable "cluster_identifier" {
@@ -35,4 +35,10 @@ variable "disable_auto_update" {
   type        = bool
   description = "Disable the auto-update feature"
   default     = false
+}
+
+variable "module_depends_on" {
+  type        = list
+  description = "List of modules or resources this module depends on"
+  default     = []
 }

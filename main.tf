@@ -1,4 +1,14 @@
+resource "null_resource" "module_depends_on" {
+  count = length(var.module_depends_on) > 0 ? 1 : 0
+
+  triggers = {
+    value = length(var.module_depends_on)
+  }
+}
+
 resource "kubernetes_secret" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name      = "spotinst-kubernetes-cluster-controller"
     namespace = "kube-system"
@@ -13,6 +23,8 @@ resource "kubernetes_secret" "this" {
 }
 
 resource "kubernetes_config_map" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name      = "spotinst-kubernetes-cluster-controller-config"
     namespace = "kube-system"
@@ -28,6 +40,8 @@ resource "kubernetes_config_map" "this" {
 }
 
 resource "kubernetes_service_account" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name      = "spotinst-kubernetes-cluster-controller"
     namespace = "kube-system"
@@ -37,6 +51,8 @@ resource "kubernetes_service_account" "this" {
 }
 
 resource "kubernetes_cluster_role" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name = "spotinst-kubernetes-cluster-controller"
   }
@@ -211,6 +227,8 @@ resource "kubernetes_cluster_role" "this" {
 }
 
 resource "kubernetes_cluster_role_binding" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name = "spotinst-kubernetes-cluster-controller"
   }
@@ -230,6 +248,8 @@ resource "kubernetes_cluster_role_binding" "this" {
 }
 
 resource "kubernetes_deployment" "this" {
+  depends_on = [null_resource.module_depends_on]
+
   metadata {
     name      = "spotinst-kubernetes-cluster-controller"
     namespace = "kube-system"
