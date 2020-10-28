@@ -1,4 +1,4 @@
-# Spot Ocean Controller Terraform module
+# Spot Ocean Controller Terraform Module
 
 A Terraform module to install Ocean Controller.
 
@@ -7,7 +7,8 @@ A Terraform module to install Ocean Controller.
 - [Usage](#usage)
 - [Examples](#examples)
 - [Resources](#resources)
-- [Variables](#variables)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
 - [Documentation](#documentation)
 - [Getting Help](#getting-help)
 - [Community](#community)
@@ -44,7 +45,7 @@ This module creates and manages the following resources:
 - kubernetes_cluster_role_binding
 - kubernetes_deployment
 
-## Variables
+## Inputs
 
 | Name                | Description                             | Type     | Default | Required |
 | ------------------- | --------------------------------------- | -------- | ------- | :------: |
@@ -55,6 +56,10 @@ This module creates and manages the following resources:
 | proxy_url           | Proxy server URL to communicate through | `string` | none    |    no    |
 | enable_csr_approval | Enable the CSR approval feature         | `bool`   | false   |    no    |
 | disable_auto_update | Disable the auto-update feature         | `bool`   | false   |    no    |
+
+## Outputs
+
+None.
 
 ## Documentation
 
