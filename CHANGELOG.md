@@ -3,9 +3,17 @@
 
 
 
-<a name="v0.9.0"></a>
-## [v0.9.0] (January 1, 0001)
+<a name="v0.10.0"></a>
+## [v0.10.0] (January 1, 0001)
 
+
+
+<a name="v0.9.0"></a>
+## [v0.9.0] (October 28, 2020)
+
+- feat: module dependencies [workaround for >=0.12 and <0.13]
+- doc(readme): rename variables to inputs
+- docs(changelog): v0.8.0
 
 
 <a name="v0.8.0"></a>
@@ -63,7 +71,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.6.0...v0.7.0
