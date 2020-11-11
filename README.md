@@ -69,9 +69,10 @@ This module creates and manages the following resources:
 |------|-------------|------|---------|:--------:|
 | base\_url | Base URL to be used by the HTTP client | `string` | `""` | no |
 | cluster\_identifier | Cluster identifier | `string` | n/a | yes |
+| create\_controller | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
 | disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
 | enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
-| module\_depends\_on | List of modules or resources this module depends on | `list` | `[]` | no |
+| module\_depends\_on | List of modules or resources this module depends on | `list(string)` | `[]` | no |
 | proxy\_url | Proxy server URL to communicate through | `string` | `""` | no |
 | spotinst\_account | Spot account ID | `string` | n/a | yes |
 | spotinst\_token | Spot Personal Access token | `string` | n/a | yes |

@@ -42,3 +42,10 @@ variable "module_depends_on" {
   description = "List of modules or resources this module depends on"
   default     = []
 }
+
+variable "create_controller" {
+  type        = bool
+  description = "Controls whether Ocean Controller should be created (it affects all resources)"
+  default     = true
+}
+

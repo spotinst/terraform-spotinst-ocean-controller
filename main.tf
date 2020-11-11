@@ -1,5 +1,5 @@
 resource "null_resource" "module_depends_on" {
-  count = length(var.module_depends_on) > 0 ? 1 : 0
+  count = var.create_controller && length(var.module_depends_on) > 0 ? 1 : 0
 
   triggers = {
     value = length(var.module_depends_on)
@@ -7,6 +7,7 @@ resource "null_resource" "module_depends_on" {
 }
 
 resource "kubernetes_secret" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
@@ -23,6 +24,7 @@ resource "kubernetes_secret" "this" {
 }
 
 resource "kubernetes_config_map" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
@@ -40,6 +42,7 @@ resource "kubernetes_config_map" "this" {
 }
 
 resource "kubernetes_service_account" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
@@ -51,6 +54,7 @@ resource "kubernetes_service_account" "this" {
 }
 
 resource "kubernetes_cluster_role" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
@@ -227,6 +231,7 @@ resource "kubernetes_cluster_role" "this" {
 }
 
 resource "kubernetes_cluster_role_binding" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
@@ -248,6 +253,7 @@ resource "kubernetes_cluster_role_binding" "this" {
 }
 
 resource "kubernetes_deployment" "this" {
+  count      = var.create_controller ? 1 : 0
   depends_on = [null_resource.module_depends_on]
 
   metadata {
