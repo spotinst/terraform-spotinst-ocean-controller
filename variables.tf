@@ -49,3 +49,8 @@ variable "create_controller" {
   default     = true
 }
 
+variable "image_pull_secrets" {
+  type        = list(string)
+  description = "List of docker image pull secrets"
+  default     = []
+}
