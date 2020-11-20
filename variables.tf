@@ -51,6 +51,6 @@ variable "create_controller" {
 
 variable "image_pull_secrets" {
   type        = list(string)
-  description = "List of docker image pull secrets"
+  description = "List of references to secrets in the same namespace to use for pulling the image"
   default     = []
 }
