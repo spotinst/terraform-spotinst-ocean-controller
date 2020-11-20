@@ -283,6 +283,13 @@ resource "kubernetes_deployment" "this" {
       }
 
       spec {
+
+        dynamic image_pull_secrets {
+          for_each = toset(var.image_pull_secrets)
+          content {
+            name = image_pull_secrets.key
+          }
+        }
         priority_class_name = "system-cluster-critical"
 
         affinity {
