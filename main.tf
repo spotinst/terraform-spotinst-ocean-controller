@@ -507,6 +507,8 @@ resource "kubernetes_deployment" "this" {
           key      = "node-role.kubernetes.io/master"
           operator = "Exists"
         }
+
+        node_selector = var.node_selector
       }
     }
   }

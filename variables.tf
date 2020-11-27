@@ -54,3 +54,11 @@ variable "image_pull_secrets" {
   description = "List of references to secrets in the same namespace to use for pulling the image"
   default     = []
 }
+
+variable "node_selector" {
+  type        = map
+  description = "Map of key value that will be used to select appropriate nodes"
+  default     = {
+    "kubernetes.io/os" = "linux"
+  }
+}
