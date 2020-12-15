@@ -294,6 +294,16 @@ resource "kubernetes_deployment" "this" {
 
         affinity {
           node_affinity {
+            required_during_scheduling_ignored_during_execution {
+              node_selector_term {
+                match_expressions {
+                  key      = "kubernetes.io/os"
+                  operator = "NotIn"
+                  values   = ["windows"]
+                }
+              }
+            }
+
             preferred_during_scheduling_ignored_during_execution {
               weight = 100
               preference {
