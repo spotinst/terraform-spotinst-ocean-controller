@@ -333,7 +333,7 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "spotinst/kubernetes-cluster-controller:1.0.69"
+          image             = "spotinst/kubernetes-cluster-controller:1.0.70"
           name              = "spotinst-kubernetes-cluster-controller"
           image_pull_policy = "Always"
 
@@ -386,6 +386,7 @@ resource "kubernetes_deployment" "this" {
               }
             }
           }
+
           env {
             name = "SPOTINST_TOKEN_LEGACY"
 
@@ -498,6 +499,7 @@ resource "kubernetes_deployment" "this" {
 
         service_account_name            = "spotinst-kubernetes-cluster-controller"
         automount_service_account_token = true
+        dns_policy                      = "Default"
 
         toleration {
           key                = "node.kubernetes.io/not-ready"
