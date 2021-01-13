@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.15.0"></a>
-## [v0.15.0] (January 1, 0001)
+<a name="v0.16.0"></a>
+## [v0.16.0] (January 1, 0001)
 
+
+
+<a name="v0.15.0"></a>
+## [v0.15.0] (January 13, 2021)
+
+- feat: expose version variable (closes [#7](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/7))
+- docs(changelog): v0.14.0
 
 
 <a name="v0.14.0"></a>
@@ -108,7 +115,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.16.0...HEAD
+[v0.16.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.15.0...v0.16.0
 [v0.15.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.13.0...v0.14.0
 [v0.13.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.12.0...v0.13.0
