@@ -70,6 +70,7 @@ This module creates and manages the following resources:
 | base\_url | Base URL to be used by the HTTP client | `string` | `""` | no |
 | cluster\_identifier | Cluster identifier | `string` | n/a | yes |
 | create\_controller | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
+| controller\_version | Controller Docker Version | `string` | _<current_version>_ | no |
 | disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
 | enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
 | image\_pull\_secrets | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
