@@ -52,7 +52,7 @@ This module creates and manages the following resources:
 
 | Name | Version |
 |------|---------|
-| terraform | >=0.12.0 |
+| terraform | >= 0.12.26 |
 | kubernetes | >= 1.13.0 |
 | null | >= 3.0.0 |
 
@@ -74,7 +74,7 @@ This module creates and manages the following resources:
 | disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
 | enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
 | image\_pull\_secrets | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
-| module\_depends\_on | List of modules or resources this module depends on | `list` | `[]` | no |
+| module\_depends\_on | List of modules or resources this module depends on | `list(any)` | `[]` | no |
 | proxy\_url | Proxy server URL to communicate through | `string` | `""` | no |
 | spotinst\_account | Spot account ID | `string` | n/a | yes |
 | spotinst\_token | Spot Personal Access token | `string` | n/a | yes |

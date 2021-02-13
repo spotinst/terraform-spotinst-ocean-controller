@@ -44,7 +44,7 @@ variable "disable_auto_update" {
 }
 
 variable "module_depends_on" {
-  type        = list
+  type        = list(any)
   description = "List of modules or resources this module depends on"
   default     = []
 }
