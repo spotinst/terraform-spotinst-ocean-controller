@@ -19,6 +19,16 @@ No requirements.
 
 No provider.
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| ocean-controller | ../.. |  |
+
+## Resources
+
+No resources.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -30,6 +40,5 @@ No provider.
 ## Outputs
 
 No output.
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
