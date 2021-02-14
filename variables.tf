@@ -16,7 +16,7 @@ variable "cluster_identifier" {
 variable "controller_version" {
   type        = string
   description = "Set the Docker version for the Ocean Controller that should be deployed"
-  default     = "1.0.70"
+  default     = "1.0.72"
 }
 
 variable "base_url" {

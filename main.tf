@@ -219,6 +219,12 @@ resource "kubernetes_cluster_role" "this" {
     verbs      = ["get", "list", "patch", "update", "create", "delete"]
   }
 
+  rule {
+    api_groups = ["batch"]
+    resources  = ["jobs"]
+    verbs      = ["get", "list", "patch", "update", "create", "delete"]
+  }
+
   # ---------------------------------------------------------------------------
   # Required by the Spotinst Wave.
   # ---------------------------------------------------------------------------
@@ -226,6 +232,12 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["sparkoperator.k8s.io"]
     resources  = ["sparkapplications", "scheduledsparkapplications"]
+    verbs      = ["get", "list"]
+  }
+
+  rule {
+    api_groups = ["wave.spot.io"]
+    resources  = ["sparkapplications", "wavecomponents", "waveenvironments"]
     verbs      = ["get", "list"]
   }
 }
