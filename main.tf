@@ -345,9 +345,9 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "spotinst/kubernetes-cluster-controller:${var.controller_version}"
+          image             = "${var.controller_image}:${var.controller_version}"
           name              = "spotinst-kubernetes-cluster-controller"
-          image_pull_policy = "Always"
+          image_pull_policy = var.image_pull_policy
 
           liveness_probe {
             http_get {

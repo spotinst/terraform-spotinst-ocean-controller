@@ -13,10 +13,22 @@ variable "cluster_identifier" {
   description = "Cluster identifier"
 }
 
+variable "controller_image" {
+  type        = string
+  description = "Set the Docker image name for the Ocean Controller that should be deployed"
+  default     = "spotinst/kubernetes-cluster-controller"
+}
+
 variable "controller_version" {
   type        = string
   description = "Set the Docker version for the Ocean Controller that should be deployed"
   default     = "1.0.72"
+}
+
+variable "image_pull_policy" {
+  type        = string
+  description = "Image pull policy (one of: Always, Never, IfNotPresent)"
+  default     = "IfNotPresent"
 }
 
 variable "base_url" {
