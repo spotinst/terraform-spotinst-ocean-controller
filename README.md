@@ -86,7 +86,7 @@ No Modules.
 | base\_url | Base URL to be used by the HTTP client | `string` | `""` | no |
 | cluster\_identifier | Cluster identifier | `string` | n/a | yes |
 | controller\_image | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
-| controller\_version | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.72"` | no |
+| controller\_version | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.73"` | no |
 | create\_controller | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
 | disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
 | enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
