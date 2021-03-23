@@ -72,3 +72,21 @@ variable "image_pull_secrets" {
   description = "List of references to secrets in the same namespace to use for pulling the image"
   default     = []
 }
+
+variable "resources_limits" {
+  description = "Definition of resources limits"
+  type = object({
+    cpu    = string
+    memory = string
+  })
+  default = {
+    cpu    = "0.5"
+    memory = "512Mi"
+  }
+}
+
+variable "resources_requests" {
+  description = "Definition of resources requests"
+  type        = map(any)
+  default     = {}
+}
