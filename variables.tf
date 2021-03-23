@@ -76,14 +76,20 @@ variable "image_pull_secrets" {
 variable "resources_limits" {
   description = "Definition of resources limits"
   type        = map(any)
-  default = {
-    cpu    = "0.5"
-    memory = "512Mi"
-  }
+  #   default = {
+  #  cpu    = "0.5"
+  #  memory = "512Mi"
+  # }
+
+  default = {}
 }
 
 variable "resources_requests" {
   description = "Definition of resources requests"
   type        = map(any)
-  default     = {}
+  #   default = {
+  #  cpu    = "0.5"
+  #  memory = "512Mi"
+  # }
+  default = {}
 }
