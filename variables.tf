@@ -75,10 +75,7 @@ variable "image_pull_secrets" {
 
 variable "resources_limits" {
   description = "Definition of resources limits"
-  type = object({
-    cpu    = string
-    memory = string
-  })
+  type        = map(any)
   default = {
     cpu    = "0.5"
     memory = "512Mi"
