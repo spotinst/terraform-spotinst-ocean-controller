@@ -74,22 +74,21 @@ variable "image_pull_secrets" {
 }
 
 variable "resources_limits" {
-  description = "Definition of resources limits"
+  description = "Definition of the maximum amount of compute resources allowed"
   type        = map(any)
-  #   default = {
-  #  cpu    = "0.5"
-  #  memory = "512Mi"
-  # }
-
-  default = {}
+  default     = null
+  //  default = {
+  //    cpu    = "0.5"
+  //    memory = "512Mi"
+  //  }
 }
 
 variable "resources_requests" {
-  description = "Definition of resources requests"
+  description = "Definition of the minimum amount of compute resources required"
   type        = map(any)
-  #   default = {
-  #  cpu    = "0.5"
-  #  memory = "512Mi"
-  # }
-  default = {}
+  default     = null
+  //  default = {
+  //    cpu    = "0.5"
+  //    memory = "512Mi"
+  //  }
 }

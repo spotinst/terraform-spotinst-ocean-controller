@@ -52,54 +52,56 @@ This module creates and manages the following resources:
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.26 |
-| kubernetes | >= 1.13.0 |
-| null | >= 3.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.13.0 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| kubernetes | >= 1.13.0 |
-| null | >= 3.0.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | >= 1.13.0 |
+| <a name="provider_null"></a> [null](#provider\_null) | >= 3.0.0 |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role) |
-| [kubernetes_cluster_role_binding](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding) |
-| [kubernetes_config_map](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) |
-| [kubernetes_deployment](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment) |
-| [kubernetes_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) |
-| [kubernetes_service_account](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_account) |
-| [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) |
+| Name | Type |
+|------|------|
+| [kubernetes_cluster_role.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role) | resource |
+| [kubernetes_cluster_role_binding.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding) | resource |
+| [kubernetes_config_map.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | resource |
+| [kubernetes_deployment.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment) | resource |
+| [kubernetes_secret.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
+| [kubernetes_service_account.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_account) | resource |
+| [null_resource.module_depends_on](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| base\_url | Base URL to be used by the HTTP client | `string` | `""` | no |
-| cluster\_identifier | Cluster identifier | `string` | n/a | yes |
-| controller\_image | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
-| controller\_version | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.73"` | no |
-| create\_controller | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
-| disable\_auto\_update | Disable the auto-update feature | `bool` | `false` | no |
-| enable\_csr\_approval | Enable the CSR approval feature | `bool` | `false` | no |
-| image\_pull\_policy | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"IfNotPresent"` | no |
-| image\_pull\_secrets | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
-| module\_depends\_on | List of modules or resources this module depends on | `list(any)` | `[]` | no |
-| proxy\_url | Proxy server URL to communicate through | `string` | `""` | no |
-| spotinst\_account | Spot account ID | `string` | n/a | yes |
-| spotinst\_token | Spot Personal Access token | `string` | n/a | yes |
+| <a name="input_base_url"></a> [base\_url](#input\_base\_url) | Base URL to be used by the HTTP client | `string` | `""` | no |
+| <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Cluster identifier | `string` | n/a | yes |
+| <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
+| <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.73"` | no |
+| <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
+| <a name="input_disable_auto_update"></a> [disable\_auto\_update](#input\_disable\_auto\_update) | Disable the auto-update feature | `bool` | `false` | no |
+| <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Enable the CSR approval feature | `bool` | `false` | no |
+| <a name="input_image_pull_policy"></a> [image\_pull\_policy](#input\_image\_pull\_policy) | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"IfNotPresent"` | no |
+| <a name="input_image_pull_secrets"></a> [image\_pull\_secrets](#input\_image\_pull\_secrets) | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
+| <a name="input_module_depends_on"></a> [module\_depends\_on](#input\_module\_depends\_on) | List of modules or resources this module depends on | `list(any)` | `[]` | no |
+| <a name="input_proxy_url"></a> [proxy\_url](#input\_proxy\_url) | Proxy server URL to communicate through | `string` | `""` | no |
+| <a name="input_resources_limits"></a> [resources\_limits](#input\_resources\_limits) | Definition of the maximum amount of compute resources allowed | `map(any)` | `null` | no |
+| <a name="input_resources_requests"></a> [resources\_requests](#input\_resources\_requests) | Definition of the minimum amount of compute resources required | `map(any)` | `null` | no |
+| <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
+| <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 
 ## Outputs
 
-No output.
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Documentation

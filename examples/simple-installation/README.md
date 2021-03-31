@@ -17,13 +17,13 @@ No requirements.
 
 ## Providers
 
-No provider.
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| ocean-controller | ../.. |  |
+| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | ../.. |  |
 
 ## Resources
 
@@ -33,12 +33,12 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cluster\_identifier | Cluster identifier | `string` | n/a | yes |
-| spotinst\_account | Spot account ID | `string` | n/a | yes |
-| spotinst\_token | Spot Personal Access token | `string` | n/a | yes |
+| <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Cluster identifier | `string` | n/a | yes |
+| <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
+| <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 
 ## Outputs
 
-No output.
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

@@ -349,13 +349,10 @@ resource "kubernetes_deployment" "this" {
           name              = "spotinst-kubernetes-cluster-controller"
           image_pull_policy = var.image_pull_policy
 
-
           resources {
             limits   = var.resources_limits
             requests = var.resources_requests
-
           }
-
 
           liveness_probe {
             http_get {
