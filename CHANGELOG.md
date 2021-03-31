@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.21.0"></a>
-## [v0.21.0] (January 1, 0001)
+<a name="v0.22.0"></a>
+## [v0.22.0] (January 1, 0001)
 
+
+
+<a name="v0.21.0"></a>
+## [v0.21.0] (March 31, 2021)
+
+- feat: allow users to override node tolerations (resolves [#8](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/8))
+- docs(changelog): v0.20.0
 
 
 <a name="v0.20.0"></a>
@@ -155,7 +162,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.22.0...HEAD
+[v0.22.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.21.0...v0.22.0
 [v0.21.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.20.0...v0.21.0
 [v0.20.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.19.0...v0.20.0
 [v0.19.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.18.0...v0.19.0
