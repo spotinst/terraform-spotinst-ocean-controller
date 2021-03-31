@@ -74,8 +74,8 @@ variable "image_pull_secrets" {
 }
 
 variable "resources_limits" {
-  description = "Definition of the maximum amount of compute resources allowed"
   type        = map(any)
+  description = "Definition of the maximum amount of compute resources allowed"
   default     = null
   //  default = {
   //    cpu    = "0.5"
@@ -84,11 +84,30 @@ variable "resources_limits" {
 }
 
 variable "resources_requests" {
-  description = "Definition of the minimum amount of compute resources required"
   type        = map(any)
+  description = "Definition of the minimum amount of compute resources required"
   default     = null
   //  default = {
   //    cpu    = "0.5"
   //    memory = "512Mi"
   //  }
+}
+
+variable "tolerations" {
+  type        = list(any)
+  description = "List of additional `toleration` objects, see: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod#toleration"
+  default = [
+    {
+      key                = "node.kubernetes.io/not-ready"
+      effect             = "NoExecute"
+      operator           = "Exists"
+      toleration_seconds = 150
+    },
+    {
+      key                = "node.kubernetes.io/unreachable"
+      effect             = "NoExecute"
+      operator           = "Exists"
+      toleration_seconds = 150
+    },
+  ]
 }

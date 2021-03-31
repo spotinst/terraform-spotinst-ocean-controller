@@ -518,18 +518,16 @@ resource "kubernetes_deployment" "this" {
         automount_service_account_token = true
         dns_policy                      = "Default"
 
-        toleration {
-          key                = "node.kubernetes.io/not-ready"
-          effect             = "NoExecute"
-          operator           = "Exists"
-          toleration_seconds = 150
-        }
+        dynamic "toleration" {
+          for_each = var.tolerations
 
-        toleration {
-          key                = "node.kubernetes.io/unreachable"
-          effect             = "NoExecute"
-          operator           = "Exists"
-          toleration_seconds = 150
+          content {
+            key                = lookup(toleration.value, "key", null)
+            value              = lookup(toleration.value, "value", null)
+            effect             = lookup(toleration.value, "effect", null)
+            operator           = lookup(toleration.value, "operator", null)
+            toleration_seconds = lookup(toleration.value, "toleration_seconds", null)
+          }
         }
 
         toleration {
