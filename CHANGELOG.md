@@ -3,9 +3,19 @@
 
 
 
-<a name="v0.20.0"></a>
-## [v0.20.0] (January 1, 0001)
+<a name="v0.21.0"></a>
+## [v0.21.0] (January 1, 0001)
 
+
+
+<a name="v0.20.0"></a>
+## [v0.20.0] (March 31, 2021)
+
+- feat: container resources (resolves [#9](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/9))
+- Update default value
+- Change variable type
+- add resources
+- docs(changelog): v0.19.0
 
 
 <a name="v0.19.0"></a>
@@ -145,7 +155,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.20.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.21.0...HEAD
+[v0.21.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.20.0...v0.21.0
 [v0.20.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.19.0...v0.20.0
 [v0.19.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.18.0...v0.19.0
 [v0.18.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.17.0...v0.18.0
