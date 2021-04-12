@@ -8,6 +8,12 @@ variable "spotinst_account" {
   description = "Spot account ID"
 }
 
+variable "create_controller" {
+  type        = bool
+  description = "Controls whether the Ocean Controller should be deployed (it affects all resources)"
+  default     = true
+}
+
 variable "cluster_identifier" {
   type        = string
   description = "Cluster identifier"
@@ -61,12 +67,6 @@ variable "module_depends_on" {
   default     = []
 }
 
-variable "create_controller" {
-  type        = bool
-  description = "Controls whether Ocean Controller should be created (it affects all resources)"
-  default     = true
-}
-
 variable "image_pull_secrets" {
   type        = list(string)
   description = "List of references to secrets in the same namespace to use for pulling the image"
@@ -110,4 +110,28 @@ variable "tolerations" {
       toleration_seconds = 150
     },
   ]
+}
+
+variable "aks_connector_enabled" {
+  type        = bool
+  description = "Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`)"
+  default     = true
+}
+
+variable "aks_connector_image" {
+  type        = string
+  description = "Set the Docker image name for the Ocean AKS Connector that should be deployed"
+  default     = "spotinst/ocean-aks-connector"
+}
+
+variable "aks_connector_version" {
+  type        = string
+  description = "Set the Docker version for the Ocean AKS Connector that should be deployed"
+  default     = "1.0.3"
+}
+
+variable "acd_identifier" {
+  type        = string
+  description = "A unique identifier used by the Ocean AKS Connector when importing an AKS cluster"
+  default     = null
 }

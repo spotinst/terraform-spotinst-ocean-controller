@@ -16,7 +16,6 @@ resource "kubernetes_secret" "this" {
   }
 
   type = "Opaque"
-
   data = {
     "token"   = var.spotinst_token
     "account" = var.spotinst_account
@@ -295,13 +294,13 @@ resource "kubernetes_deployment" "this" {
       }
 
       spec {
-
         dynamic "image_pull_secrets" {
           for_each = toset(var.image_pull_secrets)
           content {
             name = image_pull_secrets.key
           }
         }
+
         priority_class_name = "system-cluster-critical"
 
         affinity {
@@ -534,6 +533,117 @@ resource "kubernetes_deployment" "this" {
           key      = "node-role.kubernetes.io/master"
           operator = "Exists"
         }
+      }
+    }
+  }
+}
+
+resource "kubernetes_job" "this" {
+  count      = var.aks_connector_enabled && var.acd_identifier != null ? 1 : 0
+  depends_on = [null_resource.module_depends_on]
+
+  metadata {
+    name      = "spotinst-kubernetes-cluster-controller-aks-connector"
+    namespace = "kube-system"
+
+    labels = {
+      k8s-app = "spotinst-kubernetes-cluster-controller-aks-connector"
+    }
+  }
+
+  spec {
+    template {
+      metadata {
+        labels = {
+          k8s-app = "spotinst-kubernetes-cluster-controller-aks-connector"
+        }
+      }
+
+      spec {
+        node_selector = {
+          "kubernetes.azure.com/mode" = "system"
+        }
+
+        dynamic "image_pull_secrets" {
+          for_each = toset(var.image_pull_secrets)
+          content {
+            name = image_pull_secrets.key
+          }
+        }
+
+        container {
+          image             = "${var.aks_connector_image}:${var.aks_connector_version}"
+          name              = "ocean-aks-connector"
+          image_pull_policy = var.image_pull_policy
+          args              = ["connect-ocean"]
+
+          resources {
+            limits   = var.resources_limits
+            requests = var.resources_requests
+          }
+
+          env {
+            name = "SPOT_TOKEN"
+
+            value_from {
+              secret_key_ref {
+                name     = "spotinst-kubernetes-cluster-controller"
+                key      = "token"
+                optional = true
+              }
+            }
+          }
+
+          env {
+            name = "SPOT_ACCOUNT"
+
+            value_from {
+              secret_key_ref {
+                name     = "spotinst-kubernetes-cluster-controller"
+                key      = "account"
+                optional = true
+              }
+            }
+          }
+
+          env {
+            name = "SPOT_CLUSTER_IDENTIFIER"
+
+            value_from {
+              config_map_key_ref {
+                name = "spotinst-kubernetes-cluster-controller-config"
+                key  = "spotinst.cluster-identifier"
+              }
+            }
+          }
+
+          env {
+            name  = "SPOT_ACD_IDENTIFIER"
+            value = var.acd_identifier
+          }
+
+          security_context {
+            allow_privilege_escalation = false
+            run_as_user                = 0
+          }
+
+          volume_mount {
+            name       = "waagent"
+            mount_path = "/var/lib/waagent"
+          }
+        }
+
+        volume {
+          name = "waagent"
+
+          host_path {
+            type = "Directory"
+            path = "/var/lib/waagent"
+          }
+        }
+
+        dns_policy     = "Default"
+        restart_policy = "Never"
       }
     }
   }

@@ -35,6 +35,7 @@ module "ocean-controller" {
 ## Examples
 
 - [Simple Installation](https://github.com/spotinst/terraform-spotinst-ocean-controller/tree/master/examples/simple-installation)
+- [Azure Installation](https://github.com/spotinst/terraform-spotinst-ocean-controller/tree/master/examples/azure-installation)
 
 ## Resources
 
@@ -46,6 +47,7 @@ This module creates and manages the following resources:
 - kubernetes_cluster_role
 - kubernetes_cluster_role_binding
 - kubernetes_deployment
+- kubernetes_job
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -75,6 +77,7 @@ No modules.
 | [kubernetes_cluster_role_binding.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding) | resource |
 | [kubernetes_config_map.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | resource |
 | [kubernetes_deployment.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment) | resource |
+| [kubernetes_job.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/job) | resource |
 | [kubernetes_secret.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_service_account.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_account) | resource |
 | [null_resource.module_depends_on](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
@@ -83,11 +86,15 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_acd_identifier"></a> [acd\_identifier](#input\_acd\_identifier) | A unique identifier used by the Ocean AKS Connector when importing an AKS cluster | `string` | `null` | no |
+| <a name="input_aks_connector_enabled"></a> [aks\_connector\_enabled](#input\_aks\_connector\_enabled) | Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`) | `bool` | `true` | no |
+| <a name="input_aks_connector_image"></a> [aks\_connector\_image](#input\_aks\_connector\_image) | Set the Docker image name for the Ocean AKS Connector that should be deployed | `string` | `"spotinst/ocean-aks-connector"` | no |
+| <a name="input_aks_connector_version"></a> [aks\_connector\_version](#input\_aks\_connector\_version) | Set the Docker version for the Ocean AKS Connector that should be deployed | `string` | `"1.0.3"` | no |
 | <a name="input_base_url"></a> [base\_url](#input\_base\_url) | Base URL to be used by the HTTP client | `string` | `""` | no |
 | <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Cluster identifier | `string` | n/a | yes |
 | <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
 | <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.73"` | no |
-| <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether Ocean Controller should be created (it affects all resources) | `bool` | `true` | no |
+| <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether the Ocean Controller should be deployed (it affects all resources) | `bool` | `true` | no |
 | <a name="input_disable_auto_update"></a> [disable\_auto\_update](#input\_disable\_auto\_update) | Disable the auto-update feature | `bool` | `false` | no |
 | <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Enable the CSR approval feature | `bool` | `false` | no |
 | <a name="input_image_pull_policy"></a> [image\_pull\_policy](#input\_image\_pull\_policy) | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"IfNotPresent"` | no |
