@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.22.0"></a>
-## [v0.22.0] (January 1, 0001)
+<a name="v0.23.0"></a>
+## [v0.23.0] (January 1, 0001)
 
+
+
+<a name="v0.22.0"></a>
+## [v0.22.0] (April 13, 2021)
+
+- feat: new resource: job/ocean-aks-connector
+- docs(changelog): v0.21.0
 
 
 <a name="v0.21.0"></a>
@@ -162,7 +169,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.22.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.23.0...HEAD
+[v0.23.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.22.0...v0.23.0
 [v0.22.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.21.0...v0.22.0
 [v0.21.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.20.0...v0.21.0
 [v0.20.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.19.0...v0.20.0
