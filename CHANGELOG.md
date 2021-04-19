@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.23.0"></a>
-## [v0.23.0] (January 1, 0001)
+<a name="v0.24.0"></a>
+## [v0.24.0] (January 1, 0001)
 
+
+
+<a name="v0.23.0"></a>
+## [v0.23.0] (April 19, 2021)
+
+- chore(deps): bump hashicorp/terraform to 0.13
+- docs(changelog): v0.22.0
 
 
 <a name="v0.22.0"></a>
@@ -169,7 +176,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.23.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.24.0...HEAD
+[v0.24.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.23.0...v0.24.0
 [v0.23.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.22.0...v0.23.0
 [v0.22.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.21.0...v0.22.0
 [v0.21.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.20.0...v0.21.0
