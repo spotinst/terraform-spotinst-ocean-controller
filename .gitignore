@@ -18,4 +18,3 @@ terraform.tfvars
 # misc
 .envrc
 *.json
-_kubernetes.tf

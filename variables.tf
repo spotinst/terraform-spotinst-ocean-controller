@@ -61,12 +61,6 @@ variable "disable_auto_update" {
   default     = false
 }
 
-variable "module_depends_on" {
-  type        = list(any)
-  description = "List of modules or resources this module depends on"
-  default     = []
-}
-
 variable "image_pull_secrets" {
   type        = list(string)
   description = "List of references to secrets in the same namespace to use for pulling the image"
