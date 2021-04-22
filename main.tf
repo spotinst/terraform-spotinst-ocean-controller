@@ -150,7 +150,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["certificates.k8s.io"]
     resources  = ["certificatesigningrequests"]
-    verbs      = ["get", "list"]
+    verbs      = ["get", "list", "create", "delete"]
   }
 
   rule {
