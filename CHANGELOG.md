@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.26.0"></a>
-## [v0.26.0] (January 1, 0001)
+<a name="v0.27.0"></a>
+## [v0.27.0] (January 1, 0001)
 
+
+
+<a name="v0.26.0"></a>
+## [v0.26.0] (May 18, 2021)
+
+- fix(variables): change the default image pull policy
+- docs(changelog): v0.25.0
 
 
 <a name="v0.25.0"></a>
@@ -190,7 +197,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.26.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.27.0...HEAD
+[v0.27.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.26.0...v0.27.0
 [v0.26.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.25.0...v0.26.0
 [v0.25.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.24.0...v0.25.0
 [v0.24.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.23.0...v0.24.0
