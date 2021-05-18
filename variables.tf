@@ -22,13 +22,13 @@ variable "cluster_identifier" {
 variable "controller_image" {
   type        = string
   description = "Set the Docker image name for the Ocean Controller that should be deployed"
-  default     = "spotinst/kubernetes-cluster-controller"
+  default     = "gcr.io/spotinst-artifacts/kubernetes-cluster-controller"
 }
 
 variable "controller_version" {
   type        = string
   description = "Set the Docker version for the Ocean Controller that should be deployed"
-  default     = "1.0.74"
+  default     = "1.0.75"
 }
 
 variable "image_pull_policy" {

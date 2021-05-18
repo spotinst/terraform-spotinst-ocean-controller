@@ -78,8 +78,8 @@ No modules.
 | <a name="input_aks_connector_version"></a> [aks\_connector\_version](#input\_aks\_connector\_version) | Set the Docker version for the Ocean AKS Connector that should be deployed | `string` | `"1.0.3"` | no |
 | <a name="input_base_url"></a> [base\_url](#input\_base\_url) | Base URL to be used by the HTTP client | `string` | `""` | no |
 | <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Cluster identifier | `string` | n/a | yes |
-| <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
-| <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.74"` | no |
+| <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"gcr.io/spotinst-artifacts/kubernetes-cluster-controller"` | no |
+| <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Set the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.75"` | no |
 | <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether the Ocean Controller should be deployed (it affects all resources) | `bool` | `true` | no |
 | <a name="input_disable_auto_update"></a> [disable\_auto\_update](#input\_disable\_auto\_update) | Disable the auto-update feature | `bool` | `false` | no |
 | <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Enable the CSR approval feature | `bool` | `false` | no |
