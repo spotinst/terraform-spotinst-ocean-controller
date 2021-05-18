@@ -83,7 +83,7 @@ No modules.
 | <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether the Ocean Controller should be deployed (it affects all resources) | `bool` | `true` | no |
 | <a name="input_disable_auto_update"></a> [disable\_auto\_update](#input\_disable\_auto\_update) | Disable the auto-update feature | `bool` | `false` | no |
 | <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Enable the CSR approval feature | `bool` | `false` | no |
-| <a name="input_image_pull_policy"></a> [image\_pull\_policy](#input\_image\_pull\_policy) | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"IfNotPresent"` | no |
+| <a name="input_image_pull_policy"></a> [image\_pull\_policy](#input\_image\_pull\_policy) | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"Always"` | no |
 | <a name="input_image_pull_secrets"></a> [image\_pull\_secrets](#input\_image\_pull\_secrets) | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
 | <a name="input_proxy_url"></a> [proxy\_url](#input\_proxy\_url) | Proxy server URL to communicate through | `string` | `""` | no |
 | <a name="input_resources_limits"></a> [resources\_limits](#input\_resources\_limits) | Definition of the maximum amount of compute resources allowed | `map(any)` | `null` | no |

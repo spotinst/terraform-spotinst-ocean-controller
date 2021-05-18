@@ -34,7 +34,7 @@ variable "controller_version" {
 variable "image_pull_policy" {
   type        = string
   description = "Image pull policy (one of: Always, Never, IfNotPresent)"
-  default     = "IfNotPresent"
+  default     = "Always"
 }
 
 variable "base_url" {
