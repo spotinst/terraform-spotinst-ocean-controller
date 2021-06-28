@@ -219,7 +219,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["sparkoperator.k8s.io"]
     resources  = ["sparkapplications", "scheduledsparkapplications"]
-    verbs      = ["get", "list"]
+    verbs      = ["get", "list", "create"]
   }
 
   rule {
