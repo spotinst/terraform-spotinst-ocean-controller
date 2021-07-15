@@ -8,15 +8,15 @@ variable "spotinst_account" {
   description = "Spot account ID"
 }
 
+variable "cluster_identifier" {
+  type        = string
+  description = "Cluster identifier"
+}
+
 variable "create_controller" {
   type        = bool
   description = "Controls whether the Ocean Controller should be deployed (it affects all resources)"
   default     = true
-}
-
-variable "cluster_identifier" {
-  type        = string
-  description = "Cluster identifier"
 }
 
 variable "controller_image" {

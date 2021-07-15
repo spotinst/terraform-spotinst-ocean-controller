@@ -1,9 +1,14 @@
+locals {
+  prefix    = "spotinst-kubernetes-cluster-controller"
+  namespace = "kube-system"
+}
+
 resource "kubernetes_secret" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = "spotinst-kubernetes-cluster-controller"
-    namespace = "kube-system"
+    name      = local.prefix
+    namespace = local.namespace
   }
 
   type = "Opaque"
@@ -17,8 +22,8 @@ resource "kubernetes_config_map" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = "spotinst-kubernetes-cluster-controller-config"
-    namespace = "kube-system"
+    name      = format("%s-config", local.prefix)
+    namespace = local.namespace
   }
 
   data = {
@@ -34,8 +39,8 @@ resource "kubernetes_service_account" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = "spotinst-kubernetes-cluster-controller"
-    namespace = "kube-system"
+    name      = local.prefix
+    namespace = local.namespace
   }
 
   automount_service_account_token = true
@@ -45,7 +50,7 @@ resource "kubernetes_cluster_role" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name = "spotinst-kubernetes-cluster-controller"
+    name = local.prefix
   }
 
   # ---------------------------------------------------------------------------
@@ -173,14 +178,14 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups     = ["rbac.authorization.k8s.io"]
     resources      = ["clusterroles"]
-    resource_names = ["spotinst-kubernetes-cluster-controller"]
+    resource_names = [local.prefix]
     verbs          = ["patch", "update", "escalate"]
   }
 
   rule {
     api_groups     = ["apps"]
     resources      = ["deployments"]
-    resource_names = ["spotinst-kubernetes-cluster-controller"]
+    resource_names = [local.prefix]
     verbs          = ["patch", "update"]
   }
 
@@ -232,33 +237,44 @@ resource "kubernetes_cluster_role" "this" {
 resource "kubernetes_cluster_role_binding" "this" {
   count = var.create_controller ? 1 : 0
 
+  depends_on = [
+    kubernetes_cluster_role.this,
+    kubernetes_service_account.this,
+  ]
+
   metadata {
-    name = "spotinst-kubernetes-cluster-controller"
+    name = local.prefix
   }
 
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = "spotinst-kubernetes-cluster-controller"
+    name      = kubernetes_cluster_role.this[0].metadata[0].name
   }
 
   subject {
     api_group = ""
     kind      = "ServiceAccount"
-    name      = "spotinst-kubernetes-cluster-controller"
-    namespace = "kube-system"
+    name      = kubernetes_service_account.this[0].metadata[0].name
+    namespace = kubernetes_service_account.this[0].metadata[0].namespace
   }
 }
 
 resource "kubernetes_deployment" "this" {
   count = var.create_controller ? 1 : 0
 
+  depends_on = [
+    kubernetes_config_map.this,
+    kubernetes_secret.this,
+    kubernetes_service_account.this,
+  ]
+
   metadata {
-    name      = "spotinst-kubernetes-cluster-controller"
-    namespace = "kube-system"
+    name      = local.prefix
+    namespace = local.namespace
 
     labels = {
-      k8s-app = "spotinst-kubernetes-cluster-controller"
+      k8s-app = local.prefix
     }
   }
 
@@ -268,14 +284,14 @@ resource "kubernetes_deployment" "this" {
 
     selector {
       match_labels = {
-        k8s-app = "spotinst-kubernetes-cluster-controller"
+        k8s-app = local.prefix
       }
     }
 
     template {
       metadata {
         labels = {
-          k8s-app = "spotinst-kubernetes-cluster-controller"
+          k8s-app = local.prefix
         }
       }
 
@@ -320,7 +336,7 @@ resource "kubernetes_deployment" "this" {
                   match_expressions {
                     key      = "k8s-app"
                     operator = "In"
-                    values   = ["spotinst-kubernetes-cluster-controller"]
+                    values   = [local.prefix]
                   }
                 }
                 topology_key = "kubernetes.io/hostname"
@@ -330,8 +346,8 @@ resource "kubernetes_deployment" "this" {
         }
 
         container {
-          image             = "${var.controller_image}:${var.controller_version}"
-          name              = "spotinst-kubernetes-cluster-controller"
+          image             = format("%s:%s", var.controller_image, var.controller_version)
+          name              = local.prefix
           image_pull_policy = var.image_pull_policy
 
           resources {
@@ -370,7 +386,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               secret_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller"
+                name     = kubernetes_secret.this[0].metadata[0].name
                 key      = "token"
                 optional = true
               }
@@ -382,7 +398,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               secret_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller"
+                name     = kubernetes_secret.this[0].metadata[0].name
                 key      = "account"
                 optional = true
               }
@@ -394,7 +410,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller-config"
+                name     = kubernetes_config_map.this[0].metadata[0].name
                 key      = "spotinst.token"
                 optional = true
               }
@@ -406,7 +422,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller-config"
+                name     = kubernetes_config_map.this[0].metadata[0].name
                 key      = "spotinst.account"
                 optional = true
               }
@@ -418,7 +434,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "spotinst.cluster-identifier"
               }
             }
@@ -429,7 +445,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "base-url"
               }
             }
@@ -440,7 +456,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "proxy-url"
               }
             }
@@ -451,7 +467,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "enable-csr-approval"
               }
             }
@@ -462,7 +478,7 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "disable-auto-update"
               }
             }
@@ -499,7 +515,7 @@ resource "kubernetes_deployment" "this" {
           }
         }
 
-        service_account_name            = "spotinst-kubernetes-cluster-controller"
+        service_account_name            = kubernetes_service_account.this[0].metadata[0].name
         automount_service_account_token = true
         dns_policy                      = "Default"
 
@@ -525,14 +541,19 @@ resource "kubernetes_deployment" "this" {
 }
 
 resource "kubernetes_job" "this" {
-  count = var.aks_connector_enabled && var.acd_identifier != null ? 1 : 0
+  count = var.create_controller && var.aks_connector_enabled && var.acd_identifier != null ? 1 : 0
+
+  depends_on = [
+    kubernetes_config_map.this,
+    kubernetes_secret.this,
+  ]
 
   metadata {
-    name      = "spotinst-kubernetes-cluster-controller-aks-connector"
-    namespace = "kube-system"
+    name      = format("%s-aks-connector", local.prefix)
+    namespace = local.namespace
 
     labels = {
-      k8s-app = "spotinst-kubernetes-cluster-controller-aks-connector"
+      k8s-app = format("%s-aks-connector", local.prefix)
     }
   }
 
@@ -540,7 +561,7 @@ resource "kubernetes_job" "this" {
     template {
       metadata {
         labels = {
-          k8s-app = "spotinst-kubernetes-cluster-controller-aks-connector"
+          k8s-app = format("%s-aks-connector", local.prefix)
         }
       }
 
@@ -557,7 +578,7 @@ resource "kubernetes_job" "this" {
         }
 
         container {
-          image             = "${var.aks_connector_image}:${var.aks_connector_version}"
+          image             = format("%s:%s", var.aks_connector_image, var.aks_connector_version)
           name              = "ocean-aks-connector"
           image_pull_policy = var.image_pull_policy
           args              = ["connect-ocean"]
@@ -572,7 +593,7 @@ resource "kubernetes_job" "this" {
 
             value_from {
               secret_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller"
+                name     = kubernetes_secret.this[0].metadata[0].name
                 key      = "token"
                 optional = true
               }
@@ -584,7 +605,7 @@ resource "kubernetes_job" "this" {
 
             value_from {
               secret_key_ref {
-                name     = "spotinst-kubernetes-cluster-controller"
+                name     = kubernetes_secret.this[0].metadata[0].name
                 key      = "account"
                 optional = true
               }
@@ -596,7 +617,7 @@ resource "kubernetes_job" "this" {
 
             value_from {
               config_map_key_ref {
-                name = "spotinst-kubernetes-cluster-controller-config"
+                name = kubernetes_config_map.this[0].metadata[0].name
                 key  = "spotinst.cluster-identifier"
               }
             }
