@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.31.0"></a>
-## [v0.31.0] (January 1, 0001)
+<a name="v0.32.0"></a>
+## [v0.32.0] (January 1, 0001)
 
+
+
+<a name="v0.31.0"></a>
+## [v0.31.0] (July 15, 2021)
+
+- feat: deploy resources in an explicit order
+- docs(changelog): v0.30.0
 
 
 <a name="v0.30.0"></a>
@@ -225,7 +232,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.31.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.32.0...HEAD
+[v0.32.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.31.0...v0.32.0
 [v0.31.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.30.0...v0.31.0
 [v0.30.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.29.0...v0.30.0
 [v0.29.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.28.0...v0.29.0
