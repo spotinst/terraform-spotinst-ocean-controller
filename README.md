@@ -50,7 +50,7 @@ module "ocean-controller" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.2.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.3.2 |
 
 ## Modules
 
@@ -75,7 +75,7 @@ No modules.
 | <a name="input_acd_identifier"></a> [acd\_identifier](#input\_acd\_identifier) | A unique identifier used by the Ocean AKS Connector when importing an AKS cluster | `string` | `null` | no |
 | <a name="input_aks_connector_enabled"></a> [aks\_connector\_enabled](#input\_aks\_connector\_enabled) | Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`) | `bool` | `true` | no |
 | <a name="input_aks_connector_image"></a> [aks\_connector\_image](#input\_aks\_connector\_image) | Set the Docker image name for the Ocean AKS Connector that should be deployed | `string` | `"spotinst/ocean-aks-connector"` | no |
-| <a name="input_aks_connector_version"></a> [aks\_connector\_version](#input\_aks\_connector\_version) | Set the Docker version for the Ocean AKS Connector that should be deployed | `string` | `"1.0.3"` | no |
+| <a name="input_aks_connector_version"></a> [aks\_connector\_version](#input\_aks\_connector\_version) | Set the Docker version for the Ocean AKS Connector that should be deployed | `string` | `"1.0.8"` | no |
 | <a name="input_base_url"></a> [base\_url](#input\_base\_url) | Base URL to be used by the HTTP client | `string` | `""` | no |
 | <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Cluster identifier | `string` | n/a | yes |
 | <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"gcr.io/spotinst-artifacts/kubernetes-cluster-controller"` | no |

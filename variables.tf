@@ -121,7 +121,7 @@ variable "aks_connector_image" {
 variable "aks_connector_version" {
   type        = string
   description = "Set the Docker version for the Ocean AKS Connector that should be deployed"
-  default     = "1.0.3"
+  default     = "1.0.8"
 }
 
 variable "acd_identifier" {
