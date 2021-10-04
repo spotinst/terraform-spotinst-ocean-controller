@@ -54,7 +54,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required for functional operation (read-only).
+  # feature: ocean/readonly
   # ---------------------------------------------------------------------------
 
   rule {
@@ -117,7 +117,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the draining feature and for functional operation.
+  # feature: ocean/draining
   # ---------------------------------------------------------------------------
 
   rule {
@@ -139,7 +139,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the Spotinst Cleanup feature.
+  # feature: ocean/cleanup
   # ---------------------------------------------------------------------------
 
   rule {
@@ -149,7 +149,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the Spotinst CSR approval feature.
+  # feature: ocean/csr-approval
   # ---------------------------------------------------------------------------
 
   rule {
@@ -172,7 +172,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the Spotinst Auto Update feature.
+  # feature: ocean/auto-update
   # ---------------------------------------------------------------------------
 
   rule {
@@ -190,7 +190,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the Spotinst Apply feature.
+  # feature: ocean/apply
   # ---------------------------------------------------------------------------
 
   rule {
@@ -218,7 +218,7 @@ resource "kubernetes_cluster_role" "this" {
   }
 
   # ---------------------------------------------------------------------------
-  # Required by the Spotinst Wave.
+  # feature: wave
   # ---------------------------------------------------------------------------
 
   rule {
@@ -230,6 +230,12 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["wave.spot.io"]
     resources  = ["sparkapplications", "wavecomponents", "waveenvironments"]
+    verbs      = ["get", "list"]
+  }
+
+  rule {
+    api_groups = ["bigdata.spot.io"]
+    resources  = ["bigdataenvironments"]
     verbs      = ["get", "list"]
   }
 }
