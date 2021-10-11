@@ -236,7 +236,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["bigdata.spot.io"]
     resources  = ["bigdataenvironments"]
-    verbs      = ["get", "list"]
+    verbs      = ["get", "list", "create"]
   }
 }
 
