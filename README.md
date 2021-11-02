@@ -50,7 +50,7 @@ module "ocean-controller" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.3.2 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.2.0 |
 
 ## Modules
 
@@ -85,6 +85,7 @@ No modules.
 | <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Enable the CSR approval feature | `bool` | `false` | no |
 | <a name="input_image_pull_policy"></a> [image\_pull\_policy](#input\_image\_pull\_policy) | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"Always"` | no |
 | <a name="input_image_pull_secrets"></a> [image\_pull\_secrets](#input\_image\_pull\_secrets) | List of references to secrets in the same namespace to use for pulling the image | `list(string)` | `[]` | no |
+| <a name="input_node_selector"></a> [node\_selector](#input\_node\_selector) | Specifies the node selector which must match a node's labels for the Ocean Controller resources to be scheduled on that node | `map(string)` | `null` | no |
 | <a name="input_proxy_url"></a> [proxy\_url](#input\_proxy\_url) | Proxy server URL to communicate through | `string` | `""` | no |
 | <a name="input_resources_limits"></a> [resources\_limits](#input\_resources\_limits) | Definition of the maximum amount of compute resources allowed | `map(any)` | `null` | no |
 | <a name="input_resources_requests"></a> [resources\_requests](#input\_resources\_requests) | Definition of the minimum amount of compute resources required | `map(any)` | `null` | no |

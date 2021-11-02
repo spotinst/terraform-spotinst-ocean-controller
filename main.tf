@@ -302,6 +302,8 @@ resource "kubernetes_deployment" "this" {
       }
 
       spec {
+        node_selector = var.node_selector
+
         dynamic "image_pull_secrets" {
           for_each = toset(var.image_pull_secrets)
           content {
@@ -572,9 +574,7 @@ resource "kubernetes_job" "this" {
       }
 
       spec {
-        node_selector = {
-          "kubernetes.azure.com/mode" = "system"
-        }
+        node_selector = merge(var.node_selector, { "kubernetes.azure.com/mode" = "system" })
 
         dynamic "image_pull_secrets" {
           for_each = toset(var.image_pull_secrets)

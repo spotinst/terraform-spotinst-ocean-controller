@@ -106,6 +106,12 @@ variable "tolerations" {
   ]
 }
 
+variable "node_selector" {
+  type        = map(string)
+  description = "Specifies the node selector which must match a node's labels for the Ocean Controller resources to be scheduled on that node"
+  default     = null
+}
+
 variable "aks_connector_enabled" {
   type        = bool
   description = "Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`)"
