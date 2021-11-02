@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.35.0"></a>
-## [v0.35.0] (January 1, 0001)
+<a name="v0.36.0"></a>
+## [v0.36.0] (January 1, 0001)
 
+
+
+<a name="v0.35.0"></a>
+## [v0.35.0] (November 2, 2021)
+
+- feat: allow users to specify node selector
+- docs(changelog): v0.34.0
 
 
 <a name="v0.34.0"></a>
@@ -253,7 +260,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.35.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.36.0...HEAD
+[v0.36.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.35.0...v0.36.0
 [v0.35.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.34.0...v0.35.0
 [v0.34.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.33.0...v0.34.0
 [v0.33.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.32.0...v0.33.0
