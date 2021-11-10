@@ -1,13 +1,18 @@
 locals {
-  prefix    = "spotinst-kubernetes-cluster-controller"
-  namespace = "kube-system"
+  prefix                 = "spotinst-kubernetes-cluster-controller"
+  namespace              = "kube-system"
+  secret_name            = coalesce(var.secret_name, local.prefix)
+  service_account_name   = coalesce(var.service_account_name, local.prefix)
+  config_map_name        = coalesce(var.config_map_name, format("%s-config", local.prefix))
+  ca_bundle_secret_name  = coalesce(var.ca_bundle_secret_name, format("%s-ca-bundle", local.prefix))
+  aks_connector_job_name = coalesce(var.aks_connector_job_name, format("%s-aks-connector", local.prefix))
 }
 
 resource "kubernetes_secret" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = local.prefix
+    name      = local.secret_name
     namespace = local.namespace
   }
 
@@ -22,7 +27,7 @@ resource "kubernetes_config_map" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = format("%s-config", local.prefix)
+    name      = local.config_map_name
     namespace = local.namespace
   }
 
@@ -39,7 +44,7 @@ resource "kubernetes_service_account" "this" {
   count = var.create_controller ? 1 : 0
 
   metadata {
-    name      = local.prefix
+    name      = local.service_account_name
     namespace = local.namespace
   }
 
@@ -224,7 +229,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["sparkoperator.k8s.io"]
     resources  = ["sparkapplications", "scheduledsparkapplications"]
-    verbs      = ["get", "list", "create"]
+    verbs      = ["get", "list", "patch", "update", "create", "delete"]
   }
 
   rule {
@@ -236,7 +241,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups = ["bigdata.spot.io"]
     resources  = ["bigdataenvironments"]
-    verbs      = ["get", "list", "create"]
+    verbs      = ["get", "list", "patch", "update", "create", "delete"]
   }
 }
 
@@ -453,8 +458,9 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = kubernetes_config_map.this[0].metadata[0].name
-                key  = "base-url"
+                name     = kubernetes_config_map.this[0].metadata[0].name
+                key      = "base-url"
+                optional = true
               }
             }
           }
@@ -464,8 +470,9 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = kubernetes_config_map.this[0].metadata[0].name
-                key  = "proxy-url"
+                name     = kubernetes_config_map.this[0].metadata[0].name
+                key      = "proxy-url"
+                optional = true
               }
             }
           }
@@ -475,8 +482,9 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = kubernetes_config_map.this[0].metadata[0].name
-                key  = "enable-csr-approval"
+                name     = kubernetes_config_map.this[0].metadata[0].name
+                key      = "enable-csr-approval"
+                optional = true
               }
             }
           }
@@ -486,8 +494,21 @@ resource "kubernetes_deployment" "this" {
 
             value_from {
               config_map_key_ref {
-                name = kubernetes_config_map.this[0].metadata[0].name
-                key  = "disable-auto-update"
+                name     = kubernetes_config_map.this[0].metadata[0].name
+                key      = "disable-auto-update"
+                optional = true
+              }
+            }
+          }
+
+          env {
+            name = "USER_ENV_CERTIFICATES"
+
+            value_from {
+              secret_key_ref {
+                name     = local.ca_bundle_secret_name
+                key      = "userEnvCertificates.pem"
+                optional = true
               }
             }
           }
@@ -557,11 +578,11 @@ resource "kubernetes_job" "this" {
   ]
 
   metadata {
-    name      = format("%s-aks-connector", local.prefix)
+    name      = local.aks_connector_job_name
     namespace = local.namespace
 
     labels = {
-      k8s-app = format("%s-aks-connector", local.prefix)
+      k8s-app = local.aks_connector_job_name
     }
   }
 
@@ -569,7 +590,7 @@ resource "kubernetes_job" "this" {
     template {
       metadata {
         labels = {
-          k8s-app = format("%s-aks-connector", local.prefix)
+          k8s-app = local.aks_connector_job_name
         }
       }
 
