@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.37.0"></a>
-## [v0.37.0] (January 1, 0001)
+<a name="v0.38.0"></a>
+## [v0.38.0] (January 1, 0001)
 
+
+
+<a name="v0.37.0"></a>
+## [v0.37.0] (December 2, 2021)
+
+- chore: bump `spotinst/ocean-controller` to v1.0.80
+- docs(changelog): v0.36.0
 
 
 <a name="v0.36.0"></a>
@@ -267,7 +274,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.37.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.38.0...HEAD
+[v0.38.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.37.0...v0.38.0
 [v0.37.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.36.0...v0.37.0
 [v0.36.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.35.0...v0.36.0
 [v0.35.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.34.0...v0.35.0
