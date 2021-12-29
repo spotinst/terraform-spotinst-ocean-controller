@@ -570,7 +570,7 @@ resource "kubernetes_deployment" "this" {
 }
 
 resource "kubernetes_job" "this" {
-  count = var.create_controller && var.aks_connector_enabled && var.acd_identifier != null ? 1 : 0
+  count = var.create_controller && var.aks_connector_enabled ? 1 : 0
 
   depends_on = [
     kubernetes_config_map.this,

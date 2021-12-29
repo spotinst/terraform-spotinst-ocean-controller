@@ -23,7 +23,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | ../.. | n/a |
+| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | ../.. |  |
 
 ## Resources
 

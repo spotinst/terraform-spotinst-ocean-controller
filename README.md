@@ -50,7 +50,7 @@ module "ocean-controller" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.2.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 2.0 |
 
 ## Modules
 
@@ -73,7 +73,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_acd_identifier"></a> [acd\_identifier](#input\_acd\_identifier) | Specifies a unique identifier used by the Ocean AKS Connector when importing an AKS cluster | `string` | `null` | no |
-| <a name="input_aks_connector_enabled"></a> [aks\_connector\_enabled](#input\_aks\_connector\_enabled) | Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`) | `bool` | `true` | no |
+| <a name="input_aks_connector_enabled"></a> [aks\_connector\_enabled](#input\_aks\_connector\_enabled) | Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`) | `bool` | `false` | no |
 | <a name="input_aks_connector_image"></a> [aks\_connector\_image](#input\_aks\_connector\_image) | Specifies the Docker image name for the Ocean AKS Connector that should be deployed | `string` | `"spotinst/ocean-aks-connector"` | no |
 | <a name="input_aks_connector_job_name"></a> [aks\_connector\_job\_name](#input\_aks\_connector\_job\_name) | Overrides the default job name for the Ocean AKS Connector | `string` | `null` | no |
 | <a name="input_aks_connector_version"></a> [aks\_connector\_version](#input\_aks\_connector\_version) | Specifies the Docker version for the Ocean AKS Connector that should be deployed | `string` | `"1.0.8"` | no |
@@ -100,7 +100,11 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_acd_identifier"></a> [acd\_identifier](#output\_acd\_identifier) | Unique identifier used by the Ocean AKS Connector when importing an AKS cluster |
+| <a name="output_cluster_identifier"></a> [cluster\_identifier](#output\_cluster\_identifier) | Cluster identifier |
+| <a name="output_spotinst_account"></a> [spotinst\_account](#output\_spotinst\_account) | Spot account ID |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Documentation
