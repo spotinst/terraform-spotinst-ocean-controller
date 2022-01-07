@@ -28,7 +28,7 @@ variable "controller_image" {
 variable "controller_version" {
   type        = string
   description = "Specifies the Docker version for the Ocean Controller that should be deployed"
-  default     = "1.0.80"
+  default     = "1.0.81"
 }
 
 variable "image_pull_policy" {
