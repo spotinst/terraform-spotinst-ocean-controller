@@ -357,7 +357,7 @@ resource "kubernetes_deployment" "this" {
             }
           }
         }
-
+        host_network = true
         container {
           image             = format("%s:%s", var.controller_image, var.controller_version)
           name              = local.prefix
