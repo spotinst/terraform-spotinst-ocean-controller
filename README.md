@@ -82,7 +82,7 @@ No modules.
 | <a name="input_cluster_identifier"></a> [cluster\_identifier](#input\_cluster\_identifier) | Specifies the cluster identifier | `string` | n/a | yes |
 | <a name="input_config_map_name"></a> [config\_map\_name](#input\_config\_map\_name) | Overrides the default configmap name | `string` | `null` | no |
 | <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Specifies the Docker image name for the Ocean Controller that should be deployed | `string` | `"gcr.io/spotinst-artifacts/kubernetes-cluster-controller"` | no |
-| <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Specifies the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.81"` | no |
+| <a name="input_controller_version"></a> [controller\_version](#input\_controller\_version) | Specifies the Docker version for the Ocean Controller that should be deployed | `string` | `"1.0.85"` | no |
 | <a name="input_create_controller"></a> [create\_controller](#input\_create\_controller) | Controls whether the Ocean Controller should be deployed (it affects all resources) | `bool` | `true` | no |
 | <a name="input_disable_auto_update"></a> [disable\_auto\_update](#input\_disable\_auto\_update) | Controls whether the auto-update feature should be disabled | `bool` | `false` | no |
 | <a name="input_enable_csr_approval"></a> [enable\_csr\_approval](#input\_enable\_csr\_approval) | Controls whether the CSR approval feature should be enabled | `bool` | `false` | no |
