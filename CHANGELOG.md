@@ -4,8 +4,11 @@
 
 
 <a name="v0.39.0"></a>
-## [v0.39.0] (January 1, 0001)
+## [v0.39.0] (August 14, 2022)
 
+- Merge pull request [#14](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/14) from spotinst/feature/newVer1085
+- chore: bump `spotinst/ocean-controller` to v1.0.85
+- docs(changelog): v0.38.0
 
 
 <a name="v0.38.0"></a>
