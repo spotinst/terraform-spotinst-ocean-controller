@@ -3,6 +3,19 @@
 
 
 
+<a name="v0.41.0"></a>
+## [v0.41.0] (January 1, 0001)
+
+
+
+<a name="v0.40.0"></a>
+## [v0.40.0] (September 6, 2022)
+
+- fix(aks): upgrade aks_connector_version ([#17](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/17))
+- Merge pull request [#15](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/15) from spotinst/feature/v39_pr
+- docs(changelog): v0.39.0
+
+
 <a name="v0.39.0"></a>
 ## [v0.39.0] (August 14, 2022)
 
@@ -284,7 +297,9 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.39.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.41.0...HEAD
+[v0.41.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.40.0...v0.41.0
+[v0.40.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.39.0...v0.40.0
 [v0.39.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.38.0...v0.39.0
 [v0.38.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.37.0...v0.38.0
 [v0.37.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.36.0...v0.37.0
