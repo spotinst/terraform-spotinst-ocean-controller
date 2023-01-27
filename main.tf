@@ -564,6 +564,10 @@ resource "kubernetes_deployment" "this" {
           key      = "node-role.kubernetes.io/master"
           operator = "Exists"
         }
+        toleration {
+          key      = "node-role.kubernetes.io/control-plane"
+          operator = "Exists"
+        }
       }
     }
   }
