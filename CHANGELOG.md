@@ -4,8 +4,11 @@
 
 
 <a name="v0.42.0"></a>
-## [v0.42.0] (January 1, 0001)
+## [v0.42.0] (January 30, 2023)
 
+- fix : Bump spotinst/ocean-controller to v1.0.87
+- Merge pull request [#21](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/21) from spotinst/feature/chglog41
+- docs(changelog): v0.41.0
 
 
 <a name="v0.41.0"></a>
