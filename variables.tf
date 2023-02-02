@@ -1,3 +1,9 @@
+variable "kubernetes_secret_name" {
+  type        = string
+  description = "Specifies the kubernetes secret name, verrides the default secret name"
+  default     = null
+}
+
 variable "spotinst_token" {
   type        = string
   description = "Specifies the Spot Personal Access token"

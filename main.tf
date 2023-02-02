@@ -6,6 +6,7 @@ locals {
   config_map_name        = coalesce(var.config_map_name, format("%s-config", local.prefix))
   ca_bundle_secret_name  = coalesce(var.ca_bundle_secret_name, format("%s-ca-bundle", local.prefix))
   aks_connector_job_name = coalesce(var.aks_connector_job_name, format("%s-aks-connector", local.prefix))
+  kubernetes_secret_name = coalesce(var.kubernetes_secret_name, local.prefix)
 }
 
 resource "kubernetes_secret" "this" {
@@ -42,7 +43,7 @@ resource "kubernetes_config_map" "this" {
 
 resource "kubernetes_secret" "serviceaccount-token-secret" {
   metadata {
-    name      = "serviceaccount-token-secret"
+    name      = local.kubernetes_secret_name
     namespace = local.namespace
     annotations = {
       "kubernetes.io/service-account.name"      = local.service_account_name
