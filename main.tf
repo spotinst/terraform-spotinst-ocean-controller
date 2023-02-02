@@ -40,6 +40,18 @@ resource "kubernetes_config_map" "this" {
   }
 }
 
+resource "kubernetes_secret" "serviceaccount-token-secret" {
+  metadata {
+    name      = "serviceaccount-token-secret"
+    namespace = local.namespace
+    annotations = {
+      "kubernetes.io/service-account.name"      = local.service_account_name
+      "kubernetes.io/service-account.namespace" = local.namespace
+    }
+  }
+  type = "kubernetes.io/service-account-token"
+}
+
 resource "kubernetes_service_account" "this" {
   count = var.create_controller ? 1 : 0
 
@@ -48,7 +60,7 @@ resource "kubernetes_service_account" "this" {
     namespace = local.namespace
   }
 
-  automount_service_account_token = true
+  automount_service_account_token = false
 }
 
 resource "kubernetes_cluster_role" "this" {
