@@ -1,6 +1,6 @@
 locals {
   prefix                 = "spotinst-kubernetes-cluster-controller"
-  namespace              = "kube-system"
+  namespace              = var.namespace
   secret_name            = coalesce(var.secret_name, local.prefix)
   service_account_name   = coalesce(var.service_account_name, local.prefix)
   config_map_name        = coalesce(var.config_map_name, format("%s-config", local.prefix))

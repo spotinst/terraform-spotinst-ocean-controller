@@ -165,3 +165,9 @@ variable "aks_connector_job_name" {
   description = "Overrides the default job name for the Ocean AKS Connector"
   default     = null
 }
+
+variable "namespace" {
+  type        = string
+  description = "default namespace"
+  default     = "kube-system"
+}
