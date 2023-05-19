@@ -97,6 +97,7 @@ No modules.
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Specifies the Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Specifies the Spot Personal Access token | `string` | n/a | yes |
 | <a name="input_tolerations"></a> [tolerations](#input\_tolerations) | Specifies a list of additional `toleration` objects, see: https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod#toleration | `list(any)` | <pre>[<br>  {<br>    "effect": "NoExecute",<br>    "key": "node.kubernetes.io/not-ready",<br>    "operator": "Exists",<br>    "toleration_seconds": 150<br>  },<br>  {<br>    "effect": "NoExecute",<br>    "key": "node.kubernetes.io/unreachable",<br>    "operator": "Exists",<br>    "toleration_seconds": 150<br>  },<br>  {<br>    "key": "node-role.kubernetes.io/control-plane",<br>    "operator": "Exists"<br>  }<br>]</pre> | no |
+| <a name="namespace"></a> [namespace](#namespace) | Specifies the workload's namespace name | `string` | kube-system | no |
 
 ## Outputs
 
