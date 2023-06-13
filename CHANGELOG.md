@@ -3,9 +3,16 @@
 
 
 
+<a name="v0.45.0"></a>
+## [v0.45.0] (June 12, 2023)
+
+- updated controller version to 1.0.94 ([#35](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/35))
+
+
 <a name="v0.44.0"></a>
 ## [v0.44.0] (May 19, 2023)
 
+- Changelog ([#34](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/34))
 - Added namespace description to readme file ([#33](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/33))
 - Removed hard-code namespace, made namespace a variable. ([#32](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/32))
 
@@ -23,6 +30,9 @@
 ## [v0.42.0] (January 30, 2023)
 
 - fix : Bump spotinst/ocean-controller to v1.0.87
+- Update README.md
+- Update README.md
+- Update README.md
 - Update README.md
 - Added toleration
 - upgraded controller version
@@ -327,7 +337,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.44.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.45.0...HEAD
+[v0.45.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.44.0...v0.45.0
 [v0.44.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.43.0...v0.44.0
 [v0.43.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.42.0...v0.43.0
 [v0.42.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.41.0...v0.42.0
