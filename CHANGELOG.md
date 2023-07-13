@@ -3,10 +3,19 @@
 
 
 
-<a name="v0.45.0"></a>
-## [v0.45.0] (June 12, 2023)
+<a name="v0.46.0"></a>
+## [v0.46.0] (July 13, 2023)
 
-- updated controller version to 1.0.94 ([#35](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/35))
+- Upgraded controller image version ([#37](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/37))
+- [src] removed common workflow
+- [src] added common workflow
+
+
+<a name="v0.45.0"></a>
+## [v0.45.0] (June 13, 2023)
+
+- Changelog update ([#36](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/36))
+- updated controller version to 1.0.93 ([#35](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/35))
 
 
 <a name="v0.44.0"></a>
@@ -337,7 +346,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.45.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.46.0...HEAD
+[v0.46.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.45.0...v0.46.0
 [v0.45.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.44.0...v0.45.0
 [v0.44.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.43.0...v0.44.0
 [v0.43.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.42.0...v0.43.0
