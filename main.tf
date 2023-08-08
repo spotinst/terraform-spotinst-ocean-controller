@@ -559,11 +559,11 @@ resource "kubernetes_deployment" "this" {
                 field_path = "metadata.namespace"
               }
             }
-            volume_mount {
-              mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
-              name = kubernetes_secret.sa_token.metadata[0].name
-              read_only = true
-            }
+          }
+          volume_mount {
+            mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
+            name = kubernetes_secret.sa_token.metadata[0].name
+            read_only = true
           }
         }
 
