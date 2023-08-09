@@ -145,7 +145,7 @@ variable "secret_name" {
 variable "service_account_name" {
   type        = string
   description = "Overrides the default service account name"
-  default     = null
+  default     = "controller-service-account-name"
 }
 
 variable "config_map_name" {
