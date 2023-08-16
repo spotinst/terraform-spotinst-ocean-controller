@@ -568,7 +568,7 @@ resource "kubernetes_deployment" "this" {
         }
 
         service_account_name            = kubernetes_service_account.this[0].metadata[0].name
-        automount_service_account_token = true
+        automount_service_account_token = false
         dns_policy                      = "Default"
 
         dynamic "toleration" {
