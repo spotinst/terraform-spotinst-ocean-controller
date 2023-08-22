@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.47.0"></a>
-## [v0.47.0] (August 9, 2023)
+<a name="v0.47.1"></a>
+## [v0.47.1] (August 22, 2023)
 
+- `automount_service_account_token` attribute set to false ([#42](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/42))
+
+
+<a name="v0.47.0"></a>
+## [v0.47.0] (August 10, 2023)
+
+- Changelog v0.47.0 ([#40](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/40))
 - removed automount_service_account_token usage ([#39](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/39))
 
 
@@ -353,7 +360,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.47.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.47.1...HEAD
+[v0.47.1]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.47.0...v0.47.1
 [v0.47.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.46.0...v0.47.0
 [v0.46.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.45.0...v0.46.0
 [v0.45.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.44.0...v0.45.0
