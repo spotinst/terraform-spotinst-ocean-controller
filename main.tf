@@ -59,6 +59,7 @@ resource "kubernetes_service_account" "this" {
     name      = local.service_account_name
     namespace = local.namespace
   }
+  automount_service_account_token = false
 
 }
 
