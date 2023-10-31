@@ -302,7 +302,7 @@ resource "kubernetes_deployment" "this" {
   }
 
   spec {
-    replicas               = 1
+    replicas               = var.replicas
     revision_history_limit = 10
 
     selector {

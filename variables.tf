@@ -1,3 +1,9 @@
+variable "replicas" {
+  type = number
+  default = 1
+  description = "Specifies how many replicas the kubernetes deployment should spawn"
+}
+
 variable "spotinst_token" {
   type        = string
   description = "Specifies the Spot Personal Access token"
