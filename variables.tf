@@ -28,7 +28,7 @@ variable "controller_image" {
 variable "controller_version" {
   type        = string
   description = "Specifies the Docker version for the Ocean Controller that should be deployed"
-  default     = "1.0.96"
+  default     = "1.0.97"
 }
 
 variable "image_pull_policy" {
@@ -145,7 +145,7 @@ variable "secret_name" {
 variable "service_account_name" {
   type        = string
   description = "Overrides the default service account name"
-  default     = "controller-service-account-name"
+  default     = null
 }
 
 variable "config_map_name" {

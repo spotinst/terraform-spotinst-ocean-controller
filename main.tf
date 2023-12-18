@@ -41,7 +41,7 @@ resource "kubernetes_config_map" "this" {
 }
 resource "kubernetes_secret" "sa_token" {
   metadata {
-    name = "${var.service_account_name}-token"
+    name = "${local.service_account_name}-token"
     namespace = local.namespace
     annotations = {
       "kubernetes.io/service-account.name" = local.service_account_name
