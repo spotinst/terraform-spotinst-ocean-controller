@@ -48,8 +48,6 @@ resource "kubernetes_secret" "sa_token" {
     }
   }
   type = "kubernetes.io/service-account-token"
-
-  depends_on = [kubernetes_service_account.this]
 }
 
 resource "kubernetes_service_account" "this" {
