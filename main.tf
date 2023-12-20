@@ -51,6 +51,7 @@ resource "kubernetes_secret" "sa_token" {
 }
 
 resource "kubernetes_service_account" "this" {
+  depends_on = [kubernetes_secret.sa_token]
   count = var.create_controller ? 1 : 0
 
   metadata {
