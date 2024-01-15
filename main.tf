@@ -56,7 +56,7 @@ resource "kubernetes_secret" "sa_token" {
     name = "${local.service_account_name}-token"
     namespace = local.namespace
     annotations = {
-      "kubernetes.io/service-account.name" = kubernetes_service_account.this.default_secret_name
+      "kubernetes.io/service-account.name" = kubernetes_service_account.this[count.index].metadata.name
     }
   }
   type = "kubernetes.io/service-account-token"
