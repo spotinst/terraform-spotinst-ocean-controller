@@ -39,7 +39,9 @@ resource "kubernetes_config_map" "this" {
     "disable-auto-update"         = var.disable_auto_update
   }
 }
+
 resource "kubernetes_service_account" "this" {
+
   count = var.create_controller ? 1 : 0
 
   metadata {
@@ -54,6 +56,7 @@ resource "kubernetes_service_account" "this" {
 }
 
 resource "kubernetes_secret" "sa_token" {
+
   metadata {
     name = "${local.service_account_name}-token"
     namespace = local.namespace
