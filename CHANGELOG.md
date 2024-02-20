@@ -3,9 +3,16 @@
 
 
 
+<a name="v0.51.0"></a>
+## [v0.51.0] (February 20, 2024)
+
+- Controller version update to 1.0.98 ([#53](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/53))
+
+
 <a name="v0.50.0"></a>
 ## [v0.50.0] (December 18, 2023)
 
+- changelog-v0.50.0 ([#50](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/50))
 - Upgraded controller version and reverted service_account_name default value to null ([#49](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/49))
 
 
@@ -381,7 +388,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.50.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.51.0...HEAD
+[v0.51.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.50.0...v0.51.0
 [v0.50.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.49.0...v0.50.0
 [v0.49.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.48.0...v0.49.0
 [v0.48.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.47.1...v0.48.0
