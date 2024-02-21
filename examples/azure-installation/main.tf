@@ -10,6 +10,7 @@ module "ocean-controller" {
   spotinst_account = var.spotinst_account
 
   # Configuration.
-  cluster_identifier = var.cluster_identifier
-  acd_identifier     = var.acd_identifier
+  cluster_identifier    = var.cluster_identifier
+  acd_identifier        = var.acd_identifier
+  aks_connector_enabled = true
 }
