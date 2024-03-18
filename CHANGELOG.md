@@ -3,10 +3,19 @@
 
 
 
+<a name="v0.52.0"></a>
+## [v0.52.0] (March 18, 2024)
+
+- updated controller version to 1.0.99 ([#55](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/55))
+
+
 <a name="v0.51.0"></a>
 ## [v0.51.0] (February 20, 2024)
 
+- changelog v0.51.0 ([#54](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/54))
 - Controller version update to 1.0.98 ([#53](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/53))
+- Revert "making cyclic dependency b/w SA and SA token"
+- making cyclic dependency b/w SA and SA token
 
 
 <a name="v0.50.0"></a>
@@ -388,7 +397,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.51.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.52.0...HEAD
+[v0.52.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.51.0...v0.52.0
 [v0.51.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.50.0...v0.51.0
 [v0.50.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.49.0...v0.50.0
 [v0.49.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.48.0...v0.49.0
