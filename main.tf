@@ -39,20 +39,9 @@ resource "kubernetes_config_map" "this" {
     "disable-auto-update"         = var.disable_auto_update
   }
 }
-resource "kubernetes_secret" "sa_token" {
-  metadata {
-    name = "${local.service_account_name}-token"
-    namespace = local.namespace
-    annotations = {
-      "kubernetes.io/service-account.name" = local.service_account_name
-    }
-  }
-  type = "kubernetes.io/service-account-token"
-
-  depends_on = [kubernetes_service_account.this]
-}
 
 resource "kubernetes_service_account" "this" {
+
   count = var.create_controller ? 1 : 0
 
   metadata {
@@ -61,6 +50,21 @@ resource "kubernetes_service_account" "this" {
   }
   automount_service_account_token = false
 
+  secret {
+    name = "${local.service_account_name}-token"
+  }
+}
+
+resource "kubernetes_secret" "sa_token" {
+
+  metadata {
+    name = "${local.service_account_name}-token"
+    namespace = local.namespace
+    annotations = {
+      "kubernetes.io/service-account.name" = kubernetes_service_account.this[0].metadata[0].name
+    }
+  }
+  type = "kubernetes.io/service-account-token"
 }
 
 resource "kubernetes_cluster_role" "this" {
