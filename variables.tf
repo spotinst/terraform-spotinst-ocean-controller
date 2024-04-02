@@ -115,7 +115,7 @@ variable "node_selector" {
 variable "aks_connector_enabled" {
   type        = bool
   description = "Controls whether the Ocean AKS Connector should be deployed (requires a valid `acd_identifier`)"
-  default     = true
+  default     = false
 }
 
 variable "aks_connector_image" {
