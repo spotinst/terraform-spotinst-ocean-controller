@@ -3,9 +3,16 @@
 
 
 
+<a name="v0.54.0"></a>
+## [v0.54.0] (May 16, 2024)
+
+- update controller version to 1.0.100 ([#60](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/60))
+
+
 <a name="v0.53.0"></a>
 ## [v0.53.0] (April 1, 2024)
 
+- Changelog - v0.53.0 ([#59](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/59))
 - add toleration for aks-connector-job ([#57](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/57))
 
 
@@ -404,7 +411,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.53.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.54.0...HEAD
+[v0.54.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.53.0...v0.54.0
 [v0.53.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.52.0...v0.53.0
 [v0.52.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.51.0...v0.52.0
 [v0.51.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.50.0...v0.51.0
