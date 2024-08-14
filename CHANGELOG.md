@@ -3,9 +3,16 @@
 
 
 
+<a name="v0.55.0"></a>
+## [v0.55.0] (August 14, 2024)
+
+- default controller version upgrade ([#62](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/62))
+
+
 <a name="v0.54.0"></a>
 ## [v0.54.0] (May 16, 2024)
 
+- Changelog for v0.54.0 ([#61](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/61))
 - update controller version to 1.0.100 ([#60](https://github.com/spotinst/terraform-spotinst-ocean-controller/issues/60))
 
 
@@ -411,7 +418,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.54.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.55.0...HEAD
+[v0.55.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.54.0...v0.55.0
 [v0.54.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.53.0...v0.54.0
 [v0.53.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.52.0...v0.53.0
 [v0.52.0]: https://github.com/spotinst/terraform-spotinst-ocean-controller/compare/v0.51.0...v0.52.0
