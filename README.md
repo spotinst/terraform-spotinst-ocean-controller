@@ -2,6 +2,8 @@
 
 A Terraform module to install Ocean Controller.
 
+IMPORTANT: Please note that Ocean Controller Version 1 will reach End-Of-Life on November 1, 2024. To take advantage of the benefits offered by Ocean Controller Version 2 and receive uninterrupted service and support, please upgrade to Version 2 at your earliest convenience. [spotinst/terraform-ocean-kubernetes-controller ](https://registry.terraform.io/modules/spotinst/kubernetes-controller/ocean)
+
 ## Table of Contents
 
 - [Usage](#usage)
